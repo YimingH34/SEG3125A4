@@ -1,0 +1,33 @@
+.faceted-container {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.filters {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.5rem;
+    flex: 1;
+}
+
+.product-card {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
