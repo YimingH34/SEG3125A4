@@ -10,6 +10,8 @@ export default function Header() {
                 <Link to="/">Home</Link>
                 <Link to="/checkout">Checkout</Link>
                 <Link to="/survey">Survey</Link>
+                <Link to="/store">Store</Link>
+
             </div>
         </nav>
     );

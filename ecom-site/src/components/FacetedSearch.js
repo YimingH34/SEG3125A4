@@ -23,7 +23,7 @@ import React, { useState } from 'react';
 import phones from '../data/phones';
 import './FacetedSearch.css';
 
-export default function FacetedSearch() {
+export default function FacetedSearch({ addToCart }) {
     const [search, setSearch] = useState('');
     const [brand, setBrand] = useState('');
     const [price, setPrice] = useState(1500);
@@ -70,6 +70,8 @@ export default function FacetedSearch() {
                         <h3>{phone.name}</h3>
                         <p>{phone.brand}</p>
                         <p>${phone.price}</p>
+                        <button onClick={() => addToCart(phone)}>Add to Cart</button>
+
                     </div>
                 ))}
                 {filteredPhones.length === 0 && <p>No phones match your filters.</p>}
