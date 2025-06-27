@@ -8,9 +8,10 @@ export default function Header() {
             <Link to="/" className="navbar-logo">🛍️ Trendy Threads</Link>
             <div className="navbar-links">
                 <Link to="/">Home</Link>
+                <Link to="/store">Store</Link>
                 <Link to="/checkout">Checkout</Link>
                 <Link to="/survey">Survey</Link>
-                <Link to="/store">Store</Link>
+
 
             </div>
         </nav>

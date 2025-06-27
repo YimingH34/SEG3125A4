@@ -1,8 +1,16 @@
 import React from 'react';
 import './Checkout.css';
+import {useNavigate} from "react-router-dom";
 
 export default function Checkout({ cart, removeFromCart }) {
     const total = cart.reduce((sum, item) => sum + item.price, 0);
+    const navigate = useNavigate();
+
+
+    const handlePlaceOrder = () => {
+        navigate('/checkout/payment');
+    };
+
 
     return (
         <div className="checkout-container">
@@ -28,10 +36,15 @@ export default function Checkout({ cart, removeFromCart }) {
 
                     <div className="cart-summary">
                         <h3>Total: ${total}</h3>
-                        <button className="place-order-btn">Place Order</button>
+                        <button className="place-order-btn" onClick={handlePlaceOrder}>Place Order</button>
                     </div>
                 </>
             )}
         </div>
     );
 }
+
+
+
+
+
