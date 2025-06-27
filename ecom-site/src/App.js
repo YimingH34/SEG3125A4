@@ -6,6 +6,7 @@ import ProductDetails from './pages/ProductDetails';
 import Checkout from './pages/Checkout';
 import Survey from './pages/Survey';
 import Store from "./pages/Store";
+import Footer from './components/Footer';
 // import phones from './data/phones';
 
 
@@ -39,6 +40,7 @@ function App() {
             <Route path="/store" element={<Store addToCart={addToCart} />} />
 
         </Routes>
+        <Footer/>
       </>
   );
 }

@@ -67,7 +67,7 @@ import Slider from '@mui/material/Slider';
 
 
 
-
+// update this
 
 export default function FacetedSearch({ addToCart }) {
     const [search, setSearch] = useState('');
