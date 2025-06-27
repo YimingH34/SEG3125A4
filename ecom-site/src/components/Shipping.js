@@ -9,9 +9,9 @@ export default function ShippingForm({ onNext }) {
         onNext(form);
     };
     return (
-        <form className="sf-form" onSubmit={handleSubmit }>
+        <form className="sf-fields" onSubmit={handleSubmit }>
             <h2>Shipping Info</h2>
-            {['name','address','city'].map(field => (
+            {['name','address','city','province', 'country','postal code'].map(field => (
                 <label key={field}>
                     {field.charAt(0).toUpperCase() + field.slice(1)}:
                     <input
