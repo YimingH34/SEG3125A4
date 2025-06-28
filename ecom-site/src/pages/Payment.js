@@ -8,19 +8,25 @@ export default function CheckoutFlow({ cart = [], removeFromCart }) {
     const [step, setStep] = useState(0);
     const steps = ['Shipping', 'Payment', 'Review'];
     const [shippingData, setShippingData] = useState({});
+    // FIX: Use step as the current step index
+    const currentStep = step;
 
     return (
         <div className="checkout-flow">
             {/* Progress Bar */}
-            <div className="cf-header">
-                {steps.map((label, i) => (
-                    <React.Fragment key={i}>
-                        <div className={`cf-step ${i < step ? 'completed' : i === step ? 'active' : ''}`}>
-                            <div className="cf-circle" />
-                            <div className="cf-label">{label}</div>
-                        </div>
-                        {i < steps.length - 1 && <div className="cf-connector" />}
+            <div className="checkout-steps">
+                {steps.map((label, idx) => (
+                    <React.Fragment key={label}>
+                        <div className={`step-node${currentStep === idx ? ' active' : ''}${currentStep > idx ? ' completed' : ''}`}></div>
+                        {idx < steps.length - 1 && (
+                            <div className={`step-line${currentStep > idx ? ' completed' : ''}`}></div>
+                        )}
                     </React.Fragment>
+                ))}
+            </div>
+            <div className="checkout-step-labels">
+                {steps.map((label, idx) => (
+                    <div className="step-label" key={label}>{label}</div>
                 ))}
             </div>
 

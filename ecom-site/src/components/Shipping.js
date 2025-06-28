@@ -21,7 +21,7 @@ export default function ShippingForm({ onNext }) {
                     />
                 </label>
             ))}
-            <button type="submit" className="sf-next">Next →</button>
+            <button type="submit" className="next-bttn">Next →</button>
         </form>
     );
 }

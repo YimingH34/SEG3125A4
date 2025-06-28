@@ -15,15 +15,15 @@ export default function Review({ cart, removeFromCart, onBack, onPlaceOrder }) {
                         <div>
                             <strong>{item.name}</strong>
                             <p>${item.price}</p>
-                            <button onClick={() => removeFromCart(item.id)}>Remove</button>
+                            {/* <button onClick={() => removeFromCart(item.id)}>Remove</button> */}
                         </div>
                     </div>
                 ))}
             </div>
             <p className="rv-total">Total: ${total}</p>
             <div className="rv-buttons">
-                <button onClick={onBack}>← Back</button>
-                <button onClick={onPlaceOrder} className="rv-place">Place Order</button>
+                <button className="back-bttn" onClick={onBack}>← Back</button>
+                <button onClick={onPlaceOrder} className="place-bttn">Place Order</button>
             </div>
         </div>
     );

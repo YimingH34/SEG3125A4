@@ -1,5 +1,25 @@
+html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 .App {
   text-align: center;
+}
+
+.app-layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1 0 auto;
+    padding-top: 0;
+    padding-bottom: 8rem; /* large space at the bottom */
+    min-height: 350px;     /* ensures white area even if empty */
+    background: #fff;
 }
 
 .App-logo {

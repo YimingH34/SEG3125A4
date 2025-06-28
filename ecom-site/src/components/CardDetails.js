@@ -39,8 +39,8 @@ export default function CardDetails({ shippingData = {}, onBack, onNext }) {
                 </div>
 
                 <div className="rv-buttons">
-                    <button onClick={onBack}>← Back</button>
-                    <button type="submit" className="rv-place">Continue →</button>
+                    <button className="back-bttn" onClick={onBack}>← Back</button>
+                    <button type="submit" className="ctd-bttn">Continue →</button>
 
                 </div>
             </form>
