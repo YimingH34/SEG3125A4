@@ -3,13 +3,15 @@ import ShippingForm from '../components/Shipping';
 import CardDetails from '../components/CardDetails';
 import Review from '../components/Review';
 import './Payment.css';
+import {useNavigate} from "react-router-dom";
 
-export default function CheckoutFlow({ cart = [], removeFromCart }) {
+export default function CheckoutFlow({ cart = [], removeFromCart, clear }) {
     const [step, setStep] = useState(0);
     const steps = ['Shipping', 'Payment', 'Review'];
     const [shippingData, setShippingData] = useState({});
     // FIX: Use step as the current step index
     const currentStep = step;
+    const navigate = useNavigate();
 
     return (
         <div className="checkout-flow">
@@ -56,7 +58,11 @@ export default function CheckoutFlow({ cart = [], removeFromCart }) {
                             cart={cart}
                             removeFromCart={removeFromCart}
                             onBack={() => setStep(1)}
-                            onPlaceOrder={() => alert('Order placed!')}
+                            onPlaceOrder={() => {
+                                navigate('/');
+                                alert('Order placed!');
+                                clear();
+                            }}
                         />
                     )}
 

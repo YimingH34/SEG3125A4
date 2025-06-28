@@ -36,6 +36,8 @@ function App() {
         );
     };
 
+    const clearCart = () => setCart([]);
+
     return (
         <div className="app-layout">
             <Header cartCount={cart.length} />
@@ -47,7 +49,7 @@ function App() {
                         element={<Checkout cart={cart} removeFromCart={removeFromCart}/>}
                     />
                     <Route path="/checkout/payment"
-                        element={<Payment cart={cart} removeFromCart={removeFromCart}/>}
+                        element={<Payment cart={cart} removeFromCart={removeFromCart} clear ={clearCart}/>}
                     />
                     <Route path="/survey" element={<Survey />} />
                 </Routes>
