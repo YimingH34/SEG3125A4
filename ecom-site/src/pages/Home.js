@@ -37,7 +37,7 @@ export default function Home() {
                     <li>✔ Fast & free delivery nationwide</li>
                     <li>✔ 7-day replacement guarantee</li>
                 </ul>
-                <a href="/store" className="shop-now-btn">Shop Now</a>
+                <a href="https://seg3125-assignment4.netlify.app/store" className="shop-now-btn">Shop Now</a>
             </div>
             <div className="home-hero-right">
                 <div className="slider-image-container">
