@@ -3,7 +3,7 @@ import ShippingForm from '../components/Shipping';
 import CardDetails from '../components/CardDetails';
 import Review from '../components/Review';
 import './Payment.css';
-import {useNavigate} from "react-router-dom";
+// import {useNavigate} from "react-router-dom";
 
 export default function CheckoutFlow({ cart = [], removeFromCart }) {
     const [step, setStep] = useState(0);
