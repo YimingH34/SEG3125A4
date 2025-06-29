@@ -60,6 +60,8 @@ function App() {
         );
     };
 
+    const clearCart = () => setCart([]);
+
     return (
         <div className="app-layout">
             <Header cartCount={cart.reduce((sum, item) => sum + (item.quantity || 1), 0)} />
@@ -72,6 +74,7 @@ function App() {
                     />
                     <Route path="/checkout/payment"
                         element={<Payment cart={cart} removeFromCart={removeFromCart} updateQuantity={updateQuantity} />}
+
                     />
                     <Route path="/survey" element={<Survey one={false} />} />
                 </Routes>
