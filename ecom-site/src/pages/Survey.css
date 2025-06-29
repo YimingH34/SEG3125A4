@@ -1,0 +1,122 @@
+.survey-container {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: transparent;
+    padding-top: 2.5rem;
+}
+
+.survey-box {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(20,83,45,0.07);
+    padding: 2.5rem 2.5rem 2rem 2.5rem;
+    max-width: 600px;
+    width: 100%;
+}
+
+.survey-box h2 {
+    font-size: 2.1rem;
+    color: #14532d;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.survey-subtitle {
+    font-size: 1.2rem;
+    color: #222;
+    margin-bottom: 1.3rem;
+}
+
+.survey-invite {
+    font-size: 1.08rem;
+    color: #333;
+    margin-bottom: 1.7rem;
+}
+
+.survey-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+}
+
+.survey-question label {
+    font-size: 1.08rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 0.4rem;
+    display: block;
+}
+
+.survey-stars {
+    display: flex;
+    gap: 0.25rem;
+    font-size: 1.7rem;
+    margin-top: 0.2rem;
+}
+
+.star {
+    cursor: pointer;
+    color: #ccc;
+    transition: color 0.18s;
+    user-select: none;
+}
+
+.star.filled {
+    color: #ffd700;
+    text-shadow: 0 1px 2px #bfa60044;
+}
+
+.survey-question textarea {
+    width: 100%;
+    min-height: 70px;
+    border-radius: 7px;
+    border: 1.5px solid #ccc;
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+    resize: vertical;
+    margin-top: 0.3rem;
+    font-family: inherit;
+    background: #fafafa;
+    transition: border 0.2s;
+}
+
+.survey-question textarea:focus {
+    border: 1.5px solid #14532d;
+    outline: none;
+}
+
+.survey-btn {
+    align-self: flex-end;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #14532d;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    margin-top: 0.7rem;
+}
+
+.survey-btn:hover,
+.survey-btn:focus {
+    background: #ffd700;
+    color: #14532d;
+}
+
+.survey-thankyou {
+    margin-top: 1.2rem;
+    color: #14532d;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: right;
+}
+
+@media (max-width: 700px) {
+    .survey-box {
+        padding: 1.2rem 0.5rem;
+    }
+}

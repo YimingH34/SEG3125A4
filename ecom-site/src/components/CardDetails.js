@@ -1,17 +1,9 @@
-// src/pages/CardDetails.js
 import React from 'react';
 import './CardDetails.css';
 
 export default function CardDetails({ shippingData = {}, onBack, onNext }) {
     return (
         <div className="carddetails-page">
-
-            <section className="shipping-summary">
-                <h2>Shipping To</h2>
-                <p>{shippingData.name}</p>
-                <p>{shippingData.address}</p>
-                <p>{shippingData.city}</p>
-            </section>
 
             <form className="carddetails-form" onSubmit={(e) => { e.preventDefault(); onNext(); }}>
                 <h2>Card Details</h2>

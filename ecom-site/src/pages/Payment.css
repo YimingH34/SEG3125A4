@@ -1,86 +1,272 @@
 /* src/pages/CheckoutFlow.css */
-.checkout-flow { font-family: sans-serif; max-width: 900px; margin: auto; }
-.cf-header { display: flex; align-items: center; margin: 1rem 0; }
-.cf-step { display: flex; flex-direction: column; align-items: center; color: #aaa; }
-.cf-step.active, .cf-step.completed { color: #000; }
-.cf-circle { width: 16px; height: 16px; border: 2px solid currentColor; border-radius: 50%; margin-bottom: 4px; }
-.cf-step.completed .cf-circle { background: currentColor; }
-.cf-label { font-size: 0.75rem; }
-.cf-connector { flex: 1; height: 1px; background: #ddd; margin: 0 8px; }
+.checkout-flow {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    max-width: 1100px;
+    margin: 2.5rem auto 0 auto;
+    padding-bottom: 2rem;
+}
 
-.cf-content { display: flex; gap: 2rem; }
-.cf-main { flex: 2; background: #fff; padding: 1rem; border-radius: 8px; }
-.cf-sidebar { width: 250px; background: #fafafa; padding: 1rem; border-radius: 8px; }
-.cf-cart-item { display: flex; gap: 0.5rem; margin-bottom: 0.75rem; }
-.cf-cart-item img { width: 40px; object-fit: cover; }
+.checkout-steps-container {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
 
-/* Add to your payment/review step CSS */
 .checkout-steps {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 2rem;
-  gap: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 .step-node {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: #fff;
-  border: 3px solid #14532d;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 1.1rem;
-  z-index: 1;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2.5px solid #14532d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1rem;
+    z-index: 1;
+    transition: background 0.2s, border 0.2s;
 }
 
 .step-node.active {
-  background: #000;
-  color: #fff;
-  border-color: #000;
+    background: #14532d;
+    color: #fff;
+    border-color: #14532d;
 }
 
-.step-label {
-  text-align: center;
-  font-size: 0.95rem;
-  margin-top: 0.3rem;
+.step-node.completed {
+    background: #14532d;
+    color: #fff;
+    border-color: #14532d;
 }
 
 .step-line {
-  flex: 1;
-  height: 4px;
-  background: #ccc;
-  margin: 0 0.2rem;
-  border-radius: 2px;
-  z-index: 0;
+    flex: 1;
+    height: 3px;
+    background: #ccc;
+    margin: 0 0.2rem;
+    border-radius: 2px;
+    z-index: 0;
+    min-width: 40px;
 }
 
 .step-line.completed {
-  background: #000;
+    background: #14532d;
 }
 
 .checkout-step-labels {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  max-width: 100%;
-  margin: 0 auto 0.2rem auto; /* small positive margin to pull labels up */
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.2rem;
 }
 
 .checkout-step-labels .step-label {
-  flex: 1;
-  text-align: center;
-  font-size: 0.95rem;
-  margin-top: 0.2rem;
-  white-space: nowrap;
+    flex: 1;
+    text-align: center;
+    font-size: 1rem;
+    color: #222;
+    margin-top: 0.2rem;
+    white-space: nowrap;
+    min-width: 70px;
 }
 
-.step-node.completed,
-.step-node.active {
-  background: #000;
-  color: #fff;
-  border-color: #000;
+.shipping-label{
+  color: black;
+  font-weight: bold;
+}
+
+.cf-content {
+    display: flex;
+    gap: 2.5rem;
+    align-items: flex-start;
+}
+
+.cf-main {
+    flex: 2;
+    background: #fff;
+    padding: 1.5rem 2rem 2rem 2rem;
+    border-radius: 12px;
+    min-width: 400px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.cf-section {
+    margin-bottom: 2rem;
+}
+
+.shipping-to-box {
+    background: #f6f6f6;
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+    border-left: 4px solid #14532d;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+}
+
+.shipping-to-title {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #14532d;
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.5px;
+}
+
+.shipping-to-details > div {
+    color: #444;
+    font-size: 1rem;
+    margin-bottom: 2px;
+}
+
+.cf-sidebar {
+    width: 290px;
+    background: #fafafa;
+    padding: 1.5rem 1.2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    min-height: 320px;
+}
+
+.sidebar-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #14532d;
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.5px;
+}
+
+.sidebar-empty {
+    color: #888;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.sidebar-cart-list {
+    margin-bottom: 1rem;
+}
+
+.cf-cart-item {
+    display: flex;
+    gap: 0.7rem;
+    align-items: center;
+    margin-bottom: 1.1rem;
+}
+
+.cf-cart-item img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 7px;
+    border: 1px solid #eee;
+    background: #fff;
+}
+
+.cf-cart-item-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.cf-cart-item-name {
+    font-weight: 500;
+    font-size: 1.05rem;
+    color: #222;
+}
+
+.cf-cart-item-price {
+    color: #222;
+    font-size: 1rem;
+}
+
+.cf-cart-item-qty {
+    color: #888;
+    font-size: 0.98em;
+    margin-left: 2px;
+}
+
+.sidebar-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.08rem;
+    font-weight: 600;
+    margin-top: 1.2rem;
+    color: #222;
+}
+
+.sidebar-total-amount {
+    color: #14532d;
+    font-weight: bold;
+    font-size: 1.13rem;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 1.2rem 0 0.7rem 0;
+}
+
+/* CardDetails & ShippingForm field improvements */
+.cf-main label,
+.cf-main .form-label {
+    display: block;
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 0.35rem;
+    margin-top: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+}
+
+.cf-main input[type="text"],
+.cf-main input[type="email"],
+.cf-main input[type="password"],
+.cf-main input[type="number"] {
+    width: 100%;
+    padding: 0.55rem 0.9rem;
+    border: 1.5px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+    margin-top: 0.1rem;
+    transition: border 0.2s;
+    background: #fff;
+}
+
+.cf-main input[type="text"]:focus,
+.cf-main input[type="email"]:focus,
+.cf-main input[type="password"]:focus,
+.cf-main input[type="number"]:focus {
+    border: 1.5px solid #14532d;
+    outline: none;
+}
+
+.cf-main .form-row {
+    margin-bottom: 1.1rem;
+}
+
+.cf-main .form-group {
+    margin-bottom: 1.2rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .cf-content {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .cf-sidebar {
+        width: 100%;
+        min-width: 0;
+        margin-top: 2rem;
+    }
+    .cf-main {
+        min-width: 0;
+        padding: 1rem;
+    }
 }
