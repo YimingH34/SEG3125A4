@@ -1,8 +1,6 @@
 import React from 'react';
 import './Checkout.css';
 import { useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 export default function Checkout({ cart, removeFromCart, updateQuantity }) {
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
