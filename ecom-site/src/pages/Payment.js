@@ -16,23 +16,40 @@ export default function CheckoutFlow({ cart = [], removeFromCart, clearCart }) {
     return (
         <div className="checkout-flow">
             {/* Stepper */}
+            {/*<div className="checkout-steps-container">*/}
+            {/*    <div className="checkout-steps">*/}
+            {/*        {steps.map((label, idx) => (*/}
+            {/*            <React.Fragment key={label}>*/}
+            {/*                <div className={`step-node${currentStep === idx ? ' active' : ''}${currentStep > idx ? ' completed' : ''}`}></div>*/}
+            {/*                {idx < steps.length - 1 && (*/}
+            {/*                    <div className={`step-line${currentStep > idx ? ' completed' : ''}`}></div>*/}
+            {/*                )}*/}
+            {/*            </React.Fragment>*/}
+            {/*        ))}*/}
+            {/*    </div>*/}
+            {/*    <div className="checkout-step-labels">*/}
+            {/*        {steps.map((label, idx) => (*/}
+            {/*            <div className="step-label" key={label}>{label}</div>*/}
+            {/*        ))}*/}
+            {/*    </div>*/}
+            {/*</div>*/}
             <div className="checkout-steps-container">
                 <div className="checkout-steps">
                     {steps.map((label, idx) => (
-                        <React.Fragment key={label}>
+                        <div key={label} className="step-wrapper">
                             <div className={`step-node${currentStep === idx ? ' active' : ''}${currentStep > idx ? ' completed' : ''}`}></div>
+                            <div className="step-label">{label}</div>
                             {idx < steps.length - 1 && (
                                 <div className={`step-line${currentStep > idx ? ' completed' : ''}`}></div>
                             )}
-                        </React.Fragment>
-                    ))}
-                </div>
-                <div className="checkout-step-labels">
-                    {steps.map((label, idx) => (
-                        <div className="step-label" key={label}>{label}</div>
+                        </div>
                     ))}
                 </div>
             </div>
+
+
+
+
 
             <div className="cf-content">
                 {/* Main form panel */}

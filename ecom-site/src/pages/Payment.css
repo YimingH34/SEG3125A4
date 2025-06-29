@@ -6,6 +6,9 @@
     padding-bottom: 2rem;
 }
 
+
+
+/*the progress bar*/
 .checkout-steps-container {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
@@ -31,6 +34,7 @@
     font-size: 1rem;
     z-index: 1;
     transition: background 0.2s, border 0.2s;
+
 }
 
 .step-node.active {
@@ -45,36 +49,45 @@
     border-color: #14532d;
 }
 
-.step-line {
-    flex: 1;
-    height: 3px;
-    background: #ccc;
-    margin: 0 0.2rem;
-    border-radius: 2px;
-    z-index: 0;
-    min-width: 40px;
-}
-
 .step-line.completed {
     background: #14532d;
 }
 
-.checkout-step-labels {
+.checkout-steps {
     display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-top: 0.2rem;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
 }
 
-.checkout-step-labels .step-label {
+.step-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
     flex: 1;
-    text-align: center;
-    font-size: 1rem;
-    color: #222;
-    margin-top: 0.2rem;
-    white-space: nowrap;
-    min-width: 70px;
 }
+
+.step-label {
+    margin-top: 0.4rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.step-line {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    height: 3px;
+    width: 100%;
+    background: #ccc;
+    z-index: 0;
+}
+
+
+
+/*rest of the page*/
 
 .shipping-label{
   color: black;
