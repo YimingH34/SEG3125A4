@@ -76,7 +76,7 @@ function App() {
                         element={<Payment cart={cart} removeFromCart={removeFromCart} updateQuantity={updateQuantity} />}
 
                     />
-                    <Route path="/survey" element={<Survey one={false} />} />
+                    <Route path="/survey" element={<Survey />} />
                 </Routes>
             </div>
             <Footer />

@@ -10,8 +10,7 @@ export default function Header() {
                 <Link to="/">Home</Link>
                 <Link to="/store">Store</Link>
                 <Link to="/checkout">Checkout</Link>
-                <Link to="/survey">Survey</Link>
-
+                <Link to="/survey" state={{ one: true }}>Survey</Link>
 
             </div>
         </nav>

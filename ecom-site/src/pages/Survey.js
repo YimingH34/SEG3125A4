@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Survey.css';
 
 const FirstQuestions = [
@@ -13,17 +14,20 @@ const SecondQuestions = [
     "How satisfied are you with the products?"
 ]
 
-export default function Survey( {one} ) {
+export default function Survey() {
     const [ratings, setRatings] = useState([0, 0, 0]);
     const [comments, setComments] = useState('');
     const [submitted, setSubmitted] = useState(false);
+
+    const location = useLocation();
+    const one = location.state?.one;
 
     let message = "purchase"
     let questions = FirstQuestions
     let sub1 = "Your order has been successfully placed."
     let sub2 = "We will send you a confirmation email shortly."
 
-    if(!one){
+    if(one){
         message = "visit"
         questions = SecondQuestions;
         sub1 = "Your preferences have been noted."

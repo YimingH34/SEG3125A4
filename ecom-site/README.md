@@ -71,9 +71,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 
+Todo:
 
-add survery
-fix the checkout and cart image
 fix the node placement
 fix the shop now button on home
 

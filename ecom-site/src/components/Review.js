@@ -12,7 +12,7 @@ export default function Review({ cart, removeFromCart, onBack }) {
         setPlacing(true);
         setTimeout(() => {
             setPlacing(false);
-            navigate('/survey');
+            navigate('/survey', { state: { one: false } });
         }, 2000);
     };
 
