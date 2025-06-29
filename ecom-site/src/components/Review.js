@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Review.css';
 
-export default function Review({ cart, removeFromCart, onBack }) {
+export default function Review({ cart, removeFromCart, onBack, clearCart }) {
     const total = cart.reduce((sum, i) => sum + i.price * (i.quantity || 1), 0).toFixed(2);
     const [placing, setPlacing] = useState(false);
     const navigate = useNavigate();
@@ -12,6 +12,8 @@ export default function Review({ cart, removeFromCart, onBack }) {
         setPlacing(true);
         setTimeout(() => {
             setPlacing(false);
+            clearCart();
+
             navigate('/survey', { state: { one: false } });
         }, 2000);
     };

@@ -5,11 +5,13 @@ import Review from '../components/Review';
 import './Payment.css';
 // import {useNavigate} from "react-router-dom";
 
-export default function CheckoutFlow({ cart = [], removeFromCart }) {
+export default function CheckoutFlow({ cart = [], removeFromCart, clearCart }) {
     const [step, setStep] = useState(0);
     const steps = ['Shipping', 'Payment', 'Review'];
     const [shippingData, setShippingData] = useState({});
     const currentStep = step;
+
+
 
     return (
         <div className="checkout-flow">
@@ -75,6 +77,7 @@ export default function CheckoutFlow({ cart = [], removeFromCart }) {
                                 removeFromCart={removeFromCart}
                                 onBack={() => setStep(1)}
                                 onPlaceOrder={() => alert('Order placed!')}
+                                clearCart={clearCart}
                             />
                         </div>
                     )}
