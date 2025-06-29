@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Home.css';
 import phones from '../data/phones'; // Adjust path if needed
+import { Link } from 'react-router-dom';
 
 export default function Home() {
     // Use first 3 phone images for the slider
@@ -37,7 +38,7 @@ export default function Home() {
                     <li>✔ Fast & free delivery nationwide</li>
                     <li>✔ 7-day replacement guarantee</li>
                 </ul>
-                <a href="https://seg3125-assignment4.netlify.app/store" className="shop-now-btn">Shop Now</a>
+                <Link to="/store" className="shop-now-btn">Shop Now</Link>
             </div>
             <div className="home-hero-right">
                 <div className="slider-image-container">
