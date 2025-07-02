@@ -5,13 +5,17 @@ import Review from '../components/Review';
 import './Payment.css';
 // import {useNavigate} from "react-router-dom";
 
-export default function CheckoutFlow({ cart = [], removeFromCart, clearCart }) {
+export default function CheckoutFlow({ cart = [], removeFromCart, clearCart, saleIds = [] }) {
     const [step, setStep] = useState(0);
     const steps = ['Shipping', 'Payment', 'Review'];
     const [shippingData, setShippingData] = useState({});
     const currentStep = step;
 
-
+    // Helper for sale price
+    const getItemPrice = (item) =>
+        saleIds.includes(item.id)
+            ? (item.price * 0.9)
+            : item.price;
 
     return (
         <div className="checkout-flow">
@@ -95,6 +99,7 @@ export default function CheckoutFlow({ cart = [], removeFromCart, clearCart }) {
                                 onBack={() => setStep(1)}
                                 onPlaceOrder={() => alert('Order placed!')}
                                 clearCart={clearCart}
+                                saleIds={saleIds}
                             />
                         </div>
                     )}
@@ -105,26 +110,43 @@ export default function CheckoutFlow({ cart = [], removeFromCart, clearCart }) {
                     <div className="sidebar-title">Order Summary</div>
                     {cart.length === 0 && <p className="sidebar-empty">(empty)</p>}
                     <div className="sidebar-cart-list">
-                        {cart.map(item => (
-                            <div key={item.id} className="cf-cart-item">
-                                <img src={item.image} alt={item.name} />
-                                <div className="cf-cart-item-details">
-                                    <div className="cf-cart-item-name">{item.name}</div>
-                                    <div className="cf-cart-item-price">
-                                        ${item.price}
-                                        {item.quantity > 1 && (
-                                            <span className="cf-cart-item-qty"> × {item.quantity}</span>
-                                        )}
+                        {cart.map(item => {
+                            const isOnSale = saleIds.includes(item.id);
+                            const price = getItemPrice(item);
+                            return (
+                                <div key={item.id} className="cf-cart-item">
+                                    <img src={item.image} alt={item.name} />
+                                    <div className="cf-cart-item-details">
+                                        <div className="cf-cart-item-name">{item.name}</div>
+                                        <div className="cf-cart-item-price">
+                                            ${price.toFixed(2)}
+                                            {isOnSale && (
+                                                <span style={{
+                                                    color: '#388e3c',
+                                                    fontSize: '0.95em',
+                                                    marginLeft: '0.5em',
+                                                    textDecoration: 'line-through'
+                                                }}>
+                                                    ${item.price.toFixed(2)}
+                                                </span>
+                                            )}
+                                            {item.quantity > 1 && (
+                                                <span className="cf-cart-item-qty"> × {item.quantity}</span>
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                     <hr />
                     <div className="sidebar-total">
                         <span>Total:</span>
                         <span className="sidebar-total-amount">
-                            ${cart.reduce((sum, i) => sum + i.price * (i.quantity || 1), 0).toFixed(2)}
+                            ${cart.reduce((sum, i) => {
+                                const price = saleIds.includes(i.id) ? i.price * 0.9 : i.price;
+                                return sum + price * (i.quantity || 1);
+                            }, 0).toFixed(2)}
                         </span>
                     </div>
                 </aside>

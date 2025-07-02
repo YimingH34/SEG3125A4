@@ -1,13 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import phones from '../data/phones';
 import './FacetedSearch.css';
 import Slider from '@mui/material/Slider';
 
-
-
-// update this
-
-export default function FacetedSearch({ addToCart, cart = [] }) {
+export default function FacetedSearch({ addToCart, cart = [], saleIds = [] }) {
     const [search, setSearch] = useState('');
     const [brand, setBrand] = useState('');
     const [minPrice, setMinPrice] = useState(300);
@@ -15,7 +11,7 @@ export default function FacetedSearch({ addToCart, cart = [] }) {
     const [year, setYear] = useState('');
 
     const uniqueBrands = [...new Set(phones.map(p => p.brand))];
-    const uniqueYears = [...new Set(phones.map(p => p.year))].sort((a, b) => b - a); // newest to oldest
+    const uniqueYears = [...new Set(phones.map(p => p.year))].sort((a, b) => b - a);
 
     const filteredPhones = phones.filter(phone =>
         phone.name.toLowerCase().includes(search.toLowerCase()) &&
@@ -29,7 +25,6 @@ export default function FacetedSearch({ addToCart, cart = [] }) {
         <div className="faceted-container">
             <div className="filters">
                 <h3>Filters</h3>
-
                 <label>Search:</label>
                 <input
                     type="text"
@@ -37,13 +32,11 @@ export default function FacetedSearch({ addToCart, cart = [] }) {
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                 />
-
                 <label>Brand:</label>
                 <select value={brand} onChange={(e) => setBrand(e.target.value)}>
                     <option value="">All Brands</option>
                     {uniqueBrands.map(b => <option key={b} value={b}>{b}</option>)}
                 </select>
-
                 <label>Year:</label>
                 <select value={year} onChange={(e) => setYear(e.target.value)}>
                     <option value="">All Years</option>
@@ -51,7 +44,6 @@ export default function FacetedSearch({ addToCart, cart = [] }) {
                 </select>
                 <label>Price Range:</label>
                 <span>${minPrice} – ${maxPrice}</span>
-
                 <Slider
                     value={[minPrice, maxPrice]}
                     onChange={(e, newValue) => {
@@ -68,6 +60,7 @@ export default function FacetedSearch({ addToCart, cart = [] }) {
             <div className="product-grid">
                 {filteredPhones.map(phone => {
                     const alreadyAdded = cart.some(item => item.id === phone.id);
+                    const isOnSale = saleIds.includes(phone.id);
                     return (
                         <div key={phone.id} className="product-card">
                             <div className="image-wrapper">
@@ -76,6 +69,9 @@ export default function FacetedSearch({ addToCart, cart = [] }) {
                             <h3>{phone.name}</h3>
                             <p>{phone.brand} — {phone.year}</p>
                             <p>${phone.price}</p>
+                            {isOnSale && (
+                                <span className="sale-badge-inline">Sale 10% Off</span>
+                            )}
                             {alreadyAdded ? (
                                 <div className="item-added-msg">Item Added</div>
                             ) : (
@@ -91,66 +87,4 @@ export default function FacetedSearch({ addToCart, cart = [] }) {
         </div>
     );
 }
-
-
-// import React, { useState } from 'react';
-// import phones from '../data/phones';
-// import './FacetedSearch.css';
-//
-// export default function FacetedSearch({ addToCart }) {
-//     const [search, setSearch] = useState('');
-//     const [brand, setBrand] = useState('');
-//     const [price, setPrice] = useState(1500);
-//
-//     const uniqueBrands = [...new Set(phones.map(p => p.brand))];
-//
-//     const filteredPhones = phones.filter(phone =>
-//         phone.name.toLowerCase().includes(search.toLowerCase()) &&
-//         (brand === '' || phone.brand === brand) &&
-//         phone.price <= price
-//     );
-//
-//     return (
-//         <div className="faceted-container">
-//             <div className="filters">
-//                 <input
-//                     type="text"
-//                     placeholder="Search phones..."
-//                     value={search}
-//                     onChange={(e) => setSearch(e.target.value)}
-//                 />
-//
-//                 <label>Brand:</label>
-//                 <select value={brand} onChange={(e) => setBrand(e.target.value)}>
-//                     <option value="">All Brands</option>
-//                     {uniqueBrands.map(b => <option key={b} value={b}>{b}</option>)}
-//                 </select>
-//
-//                 <label>Max Price: ${price}</label>
-//                 <input
-//                     type="range"
-//                     min="300"
-//                     max="1500"
-//                     step="50"
-//                     value={price}
-//                     onChange={(e) => setPrice(Number(e.target.value))}
-//                 />
-//             </div>
-//
-//             <div className="product-grid">
-//                 {filteredPhones.map(phone => (
-//                     <div key={phone.id} className="product-card">
-//                         <img src={phone.image} alt={phone.name} />
-//                         <h3>{phone.name}</h3>
-//                         <p>{phone.brand}</p>
-//                         <p>${phone.price}</p>
-//                         <button onClick={() => addToCart(phone)}>Add to Cart</button>
-//
-//                     </div>
-//                 ))}
-//                 {filteredPhones.length === 0 && <p>No phones match your filters.</p>}
-//             </div>
-//         </div>
-//     );
-// }
 

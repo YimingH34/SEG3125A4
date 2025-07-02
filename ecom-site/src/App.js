@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import Header from './components/Header';
@@ -9,7 +9,17 @@ import Store from './pages/Store';
 import Checkout from './pages/Checkout';
 import Payment from './pages/Payment';
 import Survey from './pages/Survey';
+import phones from './data/phones';
 import './App.css';
+
+function getRandomSaleIds(phones, count = 10) {
+    const ids = phones.map(p => p.id);
+    for (let i = ids.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [ids[i], ids[j]] = [ids[j], ids[i]];
+    }
+    return ids.slice(0, Math.min(count, ids.length));
+}
 
 function App() {
     const [cart, setCart] = useState(() => {
@@ -62,18 +72,20 @@ function App() {
 
     const clearCart= () => setCart([]);
 
+    const saleIds = useMemo(() => getRandomSaleIds(phones, 10), []);
+
     return (
         <div className="app-layout">
             <Header cartCount={cart.reduce((sum, item) => sum + (item.quantity || 1), 0)} />
             <div className="main-content">
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/store" element={<Store addToCart={addToCart} cart={cart} />} />
+                    <Route path="/store" element={<Store addToCart={addToCart} cart={cart} saleIds={saleIds} />} />
                     <Route path="/checkout"
-                        element={<Checkout cart={cart} removeFromCart={removeFromCart} updateQuantity={updateQuantity} />}
+                        element={<Checkout cart={cart} removeFromCart={removeFromCart} updateQuantity={updateQuantity} saleIds={saleIds} />}
                     />
                     <Route path="/checkout/payment"
-                        element={<Payment cart={cart} removeFromCart={removeFromCart} updateQuantity={updateQuantity} clearCart={clearCart} />}
+                        element={<Payment cart={cart} removeFromCart={removeFromCart} updateQuantity={updateQuantity} clearCart={clearCart}  saleIds={saleIds}/>}
 
                     />
                     <Route path="/survey" element={<Survey />} />

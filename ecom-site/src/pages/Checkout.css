@@ -56,6 +56,13 @@
     gap: 1rem;
 }
 
+.col-product > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem; /* add a little space between badge and button */
+}
+
 .col-product img {
     width: 70px;
     height: auto;
@@ -170,12 +177,59 @@
     color: #ffd700;
 }
 
-.empt{
-    color: red;
-    font-weight: bold;
+/* .empt {
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(90deg, #e0f7fa 0%, #ffd700 100%);
+    color: #14532d;
+    font-weight: 600;
+    border-radius: 6px;
+    padding: 0.5em 1.2em;
+    font-size: 1.08rem;
+    box-shadow: 0 2px 8px rgba(20,83,45,0.07);
+    margin: 0.5em 0;
+    border-left: 6px solid #ffd700;
+    gap: 0.6em;
 }
 
+.empt::before {
+    font-size: 1.2em;
+} */
 
+.empty-cart-message {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.2em;
+    margin-top: 2.5em;
+    margin-bottom: 2.5em;
+}
+
+.empt-row {
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+}
+
+.browse-cart-msg {
+    color: #14532d;
+    font-size: 1.08rem;
+    font-weight: 600;
+    background: #e8f5e9;
+    border-radius: 6px;
+    padding: 0.5em 1.2em;
+    margin-left: 0.5em;
+    box-shadow: 0 2px 8px rgba(20,83,45,0.07);
+}
+
+.empty-cart-promo {
+    margin-top: 5em;
+    color: #388e3c;
+    font-size: 1.08rem;
+    font-weight: 500;
+    text-align: center;
+    width: 100%;
+}
 
 
 /* .place-order-btn {
