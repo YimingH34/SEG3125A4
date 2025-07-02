@@ -47,3 +47,8 @@
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+
+.sf-fields input:focus {
+    border: 1.5px solid #14532d;
+    outline: none;
+}
