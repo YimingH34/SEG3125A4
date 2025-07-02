@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import phones from '../data/phones';
 import './FacetedSearch.css';
 import Slider from '@mui/material/Slider';
