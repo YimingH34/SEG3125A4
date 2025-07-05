@@ -1,12 +1,13 @@
 import React from 'react';
 import './Footer.css';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
     return (
         <footer className="footer">
             <div className="footer-container">
                 <div className="footer-col about">
-                    <div className="footer-logo">next<span className="footer-logo-highlight">Tbuy</span></div>
+                    <div className="footer-logo">Phone<span className="footer-logo-highlight">Hub</span></div>
                     <p>
                         Your trusted marketplace for smartphones. Shop top brands at unbeatable prices, with secure payments, fast delivery, and reliable support.
                     </p>
@@ -16,7 +17,7 @@ export default function Footer() {
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li><a href="/store">Store</a></li>
-                        <li><a href="/survey">Survey</a></li>
+                        <li><Link to="/survey" state={{ one: true }}>Survey</Link></li>
                     </ul>
                 </div>
                 <div className="footer-col social">
@@ -46,7 +47,7 @@ export default function Footer() {
                 </div>
             </div>
             <div className="footer-bottom">
-                <span>© 2025 <span className="footer-logo">next<span className="footer-logo-highlight">Tbuy</span></span>. All rights reserved.</span>
+                <span>© 2025 <span className="footer-logo">Phone<span className="footer-logo-highlight">Hub</span></span>. All rights reserved.</span>
             </div>
         </footer>
     );

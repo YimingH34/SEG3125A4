@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import phones from '../data/phones';
 import './FacetedSearch.css';
 import Slider from '@mui/material/Slider';
+import { useLocation } from 'react-router-dom';
 
 export default function FacetedSearch({ addToCart, cart = [], saleIds = [] }) {
     const [search, setSearch] = useState('');
@@ -9,17 +10,27 @@ export default function FacetedSearch({ addToCart, cart = [], saleIds = [] }) {
     const [minPrice, setMinPrice] = useState(300);
     const [maxPrice, setMaxPrice] = useState(1500);
     const [year, setYear] = useState('');
+    const [interest, setInterest] = useState('');
+
+    const location = useLocation();
+    const initialInterest = new URLSearchParams(location.search).get('interest') || '';
 
     const uniqueBrands = [...new Set(phones.map(p => p.brand))];
     const uniqueYears = [...new Set(phones.map(p => p.year))].sort((a, b) => b - a);
+    const uniqueInterests = ["Techy", "Professional", "Budget Friendly"];
 
     const filteredPhones = phones.filter(phone =>
         phone.name.toLowerCase().includes(search.toLowerCase()) &&
         (brand === '' || phone.brand === brand) &&
         (year === '' || phone.year === Number(year)) &&
+        (interest === '' || phone.interest === interest) &&
         phone.price >= minPrice &&
         phone.price <= maxPrice
     );
+
+    useEffect(() => {
+        setInterest(initialInterest);
+    }, [initialInterest]);
 
     return (
         <div className="faceted-container">
@@ -41,6 +52,11 @@ export default function FacetedSearch({ addToCart, cart = [], saleIds = [] }) {
                 <select value={year} onChange={(e) => setYear(e.target.value)}>
                     <option value="">All Years</option>
                     {uniqueYears.map(y => <option key={y} value={y}>{y}</option>)}
+                </select>
+                <label>Interest:</label>
+                <select value={interest} onChange={e => setInterest(e.target.value)}>
+                    <option value="">All Interests</option>
+                    {uniqueInterests.map(i => <option key={i} value={i}>{i}</option>)}
                 </select>
                 <label>Price Range:</label>
                 <span>${minPrice} – ${maxPrice}</span>
