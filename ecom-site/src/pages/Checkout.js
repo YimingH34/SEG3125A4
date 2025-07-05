@@ -3,7 +3,6 @@ import './Checkout.css';
 import { useNavigate } from "react-router-dom";
 
 export default function Checkout({ cart, removeFromCart, updateQuantity, saleIds = [] }) {
-    // Helper to get price (with sale)
     const getItemPrice = (item) =>
         saleIds.includes(item.id)
             ? (item.price * 0.9)

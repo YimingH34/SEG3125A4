@@ -1,10 +1,8 @@
-// src/components/Review.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Review.css';
 
 export default function Review({ cart, removeFromCart, onBack, clearCart, saleIds = [] }) {
-    // Helper to get price (with sale)
     const getItemPrice = (item) =>
         saleIds.includes(item.id)
             ? (item.price * 0.9)
@@ -19,7 +17,6 @@ export default function Review({ cart, removeFromCart, onBack, clearCart, saleId
         setTimeout(() => {
             setPlacing(false);
             clearCart();
-
             navigate('/survey', { state: { one: false } });
         }, 2000);
     };

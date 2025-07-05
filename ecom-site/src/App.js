@@ -54,7 +54,6 @@ function App() {
                     i.id === id ? { ...i, quantity: i.quantity - 1 } : i
                 );
             } else {
-                // Remove item completely if quantity is 1
                 return prev.filter(i => i.id !== id);
             }
         });

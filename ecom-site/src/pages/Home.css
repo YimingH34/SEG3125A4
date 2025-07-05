@@ -4,7 +4,7 @@
     justify-content: space-between;
     min-height: 80vh;
     background: linear-gradient(90deg, #e8f5e9 0%, #f5f5f5 100%);
-    padding: 3vw 5vw; /* Changed from 0 5vw to 3vw 5vw for top/bottom padding */
+    padding: 3vw 5vw;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -140,13 +140,13 @@
 
 .interests-slider {
     display: flex;
-    gap: 100px; /* Increased gap for better spacing */
-    justify-content: center;    /* Center the cards horizontally */
-    align-items: stretch;       /* Make all cards the same height */
+    gap: 100px; 
+    justify-content: center;    
+    align-items: stretch;       
     flex-wrap: nowrap;
-    max-width: 1200px;          /* Prevents stretching too wide */
-    width: auto;                /* <-- Change from 100% to auto */
-    margin-left: -30px;          /* <-- Center the flex container */
+    max-width: 1200px;          
+    width: auto;                
+    margin-left: -30px;          
     margin-right: auto;
 }
 
@@ -193,7 +193,7 @@
 .interest-img-wrapper img {
     width: 80%;
     height: 80%;
-    object-fit: contain; /* Less zoomed in */
+    object-fit: contain;
     object-position: center;
     transition: transform 0.25s;
 }

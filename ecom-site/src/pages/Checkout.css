@@ -10,10 +10,10 @@
 }
 
 .cart-highlight {
-    color: #ffd700; /* Green for "Cart" */
+    color: #ffd700; 
 }
 .your-highlight {
-    color: gray; /* Green for "Your" */
+    color: gray; 
 }
 
 .cart-items-count {
@@ -43,7 +43,6 @@
 }
 
 .cart-table-row {
-    /* Remove background, border-radius, and box-shadow for no grey/white box */
     background: none;
     border-radius: 0;
     box-shadow: none;
@@ -60,7 +59,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.3rem; /* add a little space between badge and button */
+    gap: 0.3rem; 
 }
 
 .col-product img {
@@ -164,7 +163,7 @@
     padding: 0.5rem 1.5rem;
     font-size: 1rem;
     font-weight: 600;
-    background-color: #14532d; /* deep green */
+    background-color: #14532d; 
     color: #fff;
     border: none;
     border-radius: 6px;
@@ -176,25 +175,6 @@
 .place-order-btn:focus {
     color: #ffd700;
 }
-
-/* .empt {
-    display: inline-flex;
-    align-items: center;
-    background: linear-gradient(90deg, #e0f7fa 0%, #ffd700 100%);
-    color: #14532d;
-    font-weight: 600;
-    border-radius: 6px;
-    padding: 0.5em 1.2em;
-    font-size: 1.08rem;
-    box-shadow: 0 2px 8px rgba(20,83,45,0.07);
-    margin: 0.5em 0;
-    border-left: 6px solid #ffd700;
-    gap: 0.6em;
-}
-
-.empt::before {
-    font-size: 1.2em;
-} */
 
 .empty-cart-message {
     display: flex;
@@ -230,19 +210,3 @@
     text-align: center;
     width: 100%;
 }
-
-
-/* .place-order-btn {
-    padding: 0.8rem 1.5rem;
-    background-color: green;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-top: 0.7rem;
-}
-
-.place-order-btn:hover {
-    background-color: darkgreen;
-} */

@@ -3,7 +3,6 @@ import ShippingForm from '../components/Shipping';
 import CardDetails from '../components/CardDetails';
 import Review from '../components/Review';
 import './Payment.css';
-// import {useNavigate} from "react-router-dom";
 
 export default function CheckoutFlow({ cart = [], removeFromCart, clearCart, saleIds = [] }) {
     const [step, setStep] = useState(0);
@@ -11,7 +10,6 @@ export default function CheckoutFlow({ cart = [], removeFromCart, clearCart, sal
     const [shippingData, setShippingData] = useState({});
     const currentStep = step;
 
-    // Helper for sale price
     const getItemPrice = (item) =>
         saleIds.includes(item.id)
             ? (item.price * 0.9)
@@ -19,24 +17,6 @@ export default function CheckoutFlow({ cart = [], removeFromCart, clearCart, sal
 
     return (
         <div className="checkout-flow">
-            {/* Stepper */}
-            {/*<div className="checkout-steps-container">*/}
-            {/*    <div className="checkout-steps">*/}
-            {/*        {steps.map((label, idx) => (*/}
-            {/*            <React.Fragment key={label}>*/}
-            {/*                <div className={`step-node${currentStep === idx ? ' active' : ''}${currentStep > idx ? ' completed' : ''}`}></div>*/}
-            {/*                {idx < steps.length - 1 && (*/}
-            {/*                    <div className={`step-line${currentStep > idx ? ' completed' : ''}`}></div>*/}
-            {/*                )}*/}
-            {/*            </React.Fragment>*/}
-            {/*        ))}*/}
-            {/*    </div>*/}
-            {/*    <div className="checkout-step-labels">*/}
-            {/*        {steps.map((label, idx) => (*/}
-            {/*            <div className="step-label" key={label}>{label}</div>*/}
-            {/*        ))}*/}
-            {/*    </div>*/}
-            {/*</div>*/}
             <div className="checkout-steps-container">
                 <div className="checkout-steps">
                     {steps.map((label, idx) => (
@@ -50,11 +30,7 @@ export default function CheckoutFlow({ cart = [], removeFromCart, clearCart, sal
                     ))}
                 </div>
             </div>
-
-
-
-
-
+            
             <div className="cf-content">
                 {/* Main form panel */}
                 <div className="cf-main">

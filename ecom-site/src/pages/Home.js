@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './Home.css';
-import phones from '../data/phones'; // Adjust path if needed
+import phones from '../data/phones';
 import { Link, useNavigate } from 'react-router-dom';
 
 export default function Home() {
-    // Use first 3 phone images for the slider
     const sliderImages = phones.slice(0, 3).map(phone => phone.image);
 
     const [current, setCurrent] = useState(0);
 
-    // Auto-slide every 3 seconds
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrent(prev => (prev + 1) % sliderImages.length);
@@ -17,7 +15,6 @@ export default function Home() {
         return () => clearInterval(interval);
     }, [sliderImages.length]);
 
-    // Dot click handler
     const goToSlide = idx => setCurrent(idx);
 
     const interests = [

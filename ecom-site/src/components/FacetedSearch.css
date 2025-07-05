@@ -6,7 +6,6 @@
     background-color: #f8f9fa;
 }
 
-/* Filter Sidebar */
 .filters {
     width: 250px;
     padding: 1rem;
@@ -28,23 +27,12 @@
     font-size: 0.95rem;
 }
 
-/* Product Grid */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1.5rem;
     flex: 1;
 }
-
-/*!* Product Card *!*/
-/*.product-card {*/
-/*    background: #fff;*/
-/*    padding: 1rem;*/
-/*    border-radius: 8px;*/
-/*    text-align: center;*/
-/*    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);*/
-/*    transition: transform 0.2s ease;*/
-/*}*/
 
 .product-card {
     display: flex;
@@ -55,7 +43,7 @@
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     transition: transform 0.2s ease;
-    min-height: 360px; /* tweak as needed so all cards match */
+    min-height: 360px;
 }
 
 .product-card:hover {
@@ -79,7 +67,6 @@
     color: #555;
 }
 
-/* Buttons */
 .product-card button {
     margin-top: 0.5rem;
     padding: 0.5rem 1rem;
@@ -95,7 +82,7 @@
     height: 160px;
     overflow: hidden;
     margin-bottom: 1rem;
-    position: relative; /* Add this for badge positioning */
+    position: relative; 
 }
 
 .image-wrapper img {
@@ -127,7 +114,6 @@
     outline: none;
 }
 
-/* Add to FacetedSearch.css */
 .item-added-msg {
     width: 100%;
     padding: 0.7em 0;

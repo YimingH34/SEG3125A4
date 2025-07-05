@@ -1,7 +1,6 @@
-/* CardDetails.css */
 .carddetails-page {
     max-width: 400px;
-    margin: -1.2rem 0 0 0; /* Move up and align left */
+    margin: -1.2rem 0 0 0; 
     padding: 0.5rem 1rem 1rem 0;
 }
 
@@ -10,7 +9,7 @@
     padding: 0.5rem 1.5rem;
     font-size: 1rem;
     font-weight: 600;
-    background-color: #14532d; /* deep green */
+    background-color: #14532d;
     color: #fff;
     border: none;
     border-radius: 6px;
@@ -31,10 +30,6 @@
 .two-cols input {
     width: 100%;
 }
-
-
-
-
 
 .ctd-bttn:hover,
 .ctd-bttn:focus {
@@ -103,21 +98,6 @@
 
 .rv-buttons { display: flex; justify-content: space-between; }
 .rv-item button { background: #f66; color: #fff; border: none; padding: 0.25rem 0.5rem; }
-/*.rv-place { background: #007bff; color: #fff; border: none; padding: 0.5rem 1rem; }*/
-/*.pay-btn {*/
-/*    margin-top: 1rem;*/
-/*    padding: 0.75rem;*/
-/*    font-size: 1rem;*/
-/*    background: #007bff;*/
-/*    color: #fff;*/
-/*    border: none;*/
-/*    border-radius: 6px;*/
-/*    cursor: pointer;*/
-/*}*/
-
-/*.pay-btn:hover {*/
-/*    background: #0056b3;*/
-/*}*/
 
 @media (max-width: 900px) {
     .carddetails-page {

@@ -17,8 +17,8 @@ html, body, #root {
 .main-content {
     flex: 1 0 auto;
     padding-top: 0;
-    padding-bottom: 8rem; /* large space at the bottom */
-    min-height: 350px;     /* ensures white area even if empty */
+    padding-bottom: 8rem; 
+    min-height: 350px;    
     background: #fff;
 }
 

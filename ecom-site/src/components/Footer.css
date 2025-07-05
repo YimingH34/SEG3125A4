@@ -104,12 +104,12 @@
 
 .footer-col.location iframe {
     width: 100%;
-    height: 140px;      /* Increased from 80px */
+    height: 140px;      
     border: none;
     border-radius: 8px;
     margin-top: 0.3em;
     display: block;
-    max-height: 140px;  /* Ensures it doesn't overflow */
+    max-height: 140px;  
 }
 
 .footer-bottom {
