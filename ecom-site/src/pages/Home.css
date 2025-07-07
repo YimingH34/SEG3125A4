@@ -1,3 +1,7 @@
+body, html {
+    overflow-x: hidden;
+}
+
 .home-hero {
     display: flex;
     align-items: center;
@@ -140,13 +144,13 @@
 
 .interests-slider {
     display: flex;
-    gap: 100px; 
+    gap: 60px; 
     justify-content: center;    
     align-items: stretch;       
     flex-wrap: nowrap;
-    max-width: 1200px;          
+    max-width: 100%;          
     width: auto;                
-    margin-left: -30px;          
+    margin-left: -60px;          
     margin-right: auto;
 }
 
@@ -154,7 +158,7 @@
     background: #fff;
     border-radius: 22px;
     box-shadow: 0 4px 24px rgba(27,94,32,0.08);
-    width: 30%;
+    width: 25%;
     min-width: 260px;
     max-width: 400px;
     padding: 0 0 28px 0;
@@ -168,13 +172,14 @@
     flex-direction: column;
     align-items: center;
     border: 2px solid transparent;
+    border-color: #1b5e20;
 }
 
 .interest-card:focus,
 .interest-card:hover {
     box-shadow: 0 8px 32px rgba(27,94,32,0.15), 0 2px 8px #b9f6ca;
     transform: translateY(-6px) scale(1.035);
-    border: 2px solid #1b5e20;
+    border: 2px solid lightgreen;
     background: #f1f8f4;
 }
 

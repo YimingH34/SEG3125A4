@@ -34,7 +34,7 @@ export default function Checkout({ cart, removeFromCart, updateQuantity, saleIds
                 <>
                     <div className="empty-cart-message">
                         <div className="empt-row">
-                            <span className="browse-cart-msg">EMPTY CART: Browse to fill up your shopping cart</span>
+                            <span className="browse-cart-msg">EMPTY CART: Browse our store to fill up your shopping cart</span>
                         </div>
                     </div>
                     <div className="cart-footer-row" style={{marginTop: "2em"}}>

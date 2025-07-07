@@ -173,7 +173,8 @@
 
 .place-order-btn:hover,
 .place-order-btn:focus {
-    color: #ffd700;
+    background: #ffd700;
+    color: #14532d;
 }
 
 .empty-cart-message {
